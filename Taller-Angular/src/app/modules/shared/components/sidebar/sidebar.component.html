@@ -10,7 +10,7 @@
         <p>MAIN MENU</p>
     </div>
     <div [routerLink]="option.route" class="sidebar__row" *ngFor="let option of menuOptions"  [class.sidebar__row--selected]="true">
-        <app-icon  name="{{option.icon}}" width="80px" height="80px"></app-icon>
+        <app-icon  name="{{option.icon}}" width="80px" height="80px" color="var(--light-gray-color)"></app-icon>
         <p>{{option.name}}</p>  
     </div>
 </div>
