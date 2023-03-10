@@ -1,0 +1,13 @@
+.sidebar{
+    display: flex;
+    flex-direction: column;
+
+    &__row{
+        display: flex;
+    }
+
+    &__col{
+        display: flex;
+        flex-direction: column;
+    }
+}
