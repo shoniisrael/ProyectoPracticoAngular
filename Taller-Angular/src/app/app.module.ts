@@ -6,15 +6,19 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/pages/login/login.component';
 import { SidebarComponent} from './modules/shared/components/sidebar/sidebar.component';
-import {  IconComponent } from './modules/shared/icon/icon.component';
+import { IconComponent } from './modules/shared/icon/icon.component';
 import { LayoutComponent } from './modules/shared/layout/layout.component';
+import { DashboardComponent } from './modules/shared/components/dashboard/dashboard.component';
+import { HeaderComponent } from './modules/shared/components/header/header.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    LayoutComponent
+    LayoutComponent,
+    DashboardComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
