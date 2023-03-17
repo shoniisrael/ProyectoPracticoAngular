@@ -10,6 +10,9 @@ import { IconComponent } from './modules/shared/icon/icon.component';
 import { LayoutComponent } from './modules/shared/layout/layout.component';
 import { DashboardComponent } from './modules/shared/components/dashboard/dashboard.component';
 import { HeaderComponent } from './modules/shared/components/header/header.component';
+import { CardDriverComponent } from './components/organisms/card-driver/card-driver.component';
+import { ContenedorComponent } from './components/organisms/contenedor/contenedor.component';
+import { CardPercentComponent } from './components/organisms/card-percent/card-percent.component';
 
 
 @NgModule({
@@ -18,7 +21,10 @@ import { HeaderComponent } from './modules/shared/components/header/header.compo
     LoginComponent,
     LayoutComponent,
     DashboardComponent,
-    HeaderComponent
+    HeaderComponent,
+    CardDriverComponent,
+    ContenedorComponent,
+    CardPercentComponent
   ],
   imports: [
     BrowserModule,

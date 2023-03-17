@@ -12,6 +12,7 @@
     }
 
     &__row {
+        padding-left: 10px;
         text-decoration: none;
         display: flex;
         width: 100%;
@@ -59,6 +60,11 @@
 
     &--align {
         align-items: center;
-        justify-content: space-evenly;
+        justify-content: flex-start;
+    }
+
+    &__col-phone{
+        color: gray;
+        font-size: 14px;
     }
 }
