@@ -14,8 +14,12 @@ import { CardDriverComponent } from './components/organisms/card-driver/card-dri
 import { ContenedorComponent } from './components/organisms/contenedor/contenedor.component';
 import { CardPercentComponent } from './components/organisms/card-percent/card-percent.component';
 
+import {HttpClientModule} from '@angular/common/http';
+import { ComCComponent } from './com-c/com-c.component';
+
 
 @NgModule({
+
   declarations: [
     AppComponent,
     LoginComponent,
@@ -24,13 +28,16 @@ import { CardPercentComponent } from './components/organisms/card-percent/card-p
     HeaderComponent,
     CardDriverComponent,
     ContenedorComponent,
-    CardPercentComponent
+    CardPercentComponent,
+    ComCComponent,
   ],
+    
   imports: [
     BrowserModule,
     AppRoutingModule,
     SidebarComponent,
-    IconComponent
+    IconComponent,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent],

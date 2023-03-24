@@ -1,4 +1,4 @@
-import { SidebarRoutesInterface } from "src/app/models/sidebarRoutes.interfaces"
+import { SidebarRoutesInterface } from "src/app/models/sidebarRoutes.interface"
 
 export const SidebarRoutes: SidebarRoutesInterface[] = [
   
