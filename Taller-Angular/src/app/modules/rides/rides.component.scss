@@ -54,4 +54,15 @@
       }
     }
   }
-  
+
+.flex{
+  display: flex;
+  flex-direction: row;
+}
+
+.column{
+  display: flex;
+//   &__avatar-container{
+//     background-color: aqua;
+//  }
+}

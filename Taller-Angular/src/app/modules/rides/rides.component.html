@@ -1,5 +1,6 @@
-<
-<div class="table-wrapper">
+<div class="flex">
+  <div class="table-wrapper">
+    <app-progresivebar-rides></app-progresivebar-rides>
     <table>
       <thead>
         <tr>
@@ -10,20 +11,27 @@
           <th>Start Location</th>
           <th>Finish Location</th>
           <th>Income</th>
-         
         </tr>
       </thead>
       <tbody>
         <tr>
           <td><input type="checkbox" /></td>
-  
-          <td><img src="https://i.pravatar.cc/307"> </td>
+
+          <td class="column">
+            <div class="column__avatar-column">
+              <img  src="https://i.pravatar.cc/307">
+            </div>
+            <div class="column__avatar-container">
+              <span>Sierra Fergunson</span>
+              <span>+593 438 4763 28</span>
+            </div>
+          </td>
           <td>simple</td>
           <td>04.12.2021.20:30</td>
           <td>21 Homidulo Oripov </td>
           <td>21 Homidulo Oripov</td>
-          <td>Información 6</td>
-         
+          <td class="">Información 6</td>
+
         </tr>
         <tr>
           <td><input type="checkbox" /></td>
@@ -66,7 +74,10 @@
     <div class="pagination">
       <a href="#">1</a>
       <a href="#">2</a>
-     
+
     </div>
   </div>
-  
+  <div>
+    <!-- <app-vertical-detailed-ride></app-vertical-detailed-ride> -->
+  </div>
+</div>

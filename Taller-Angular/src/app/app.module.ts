@@ -16,6 +16,7 @@ import { CardPercentComponent } from './components/organisms/card-percent/card-p
 
 import {HttpClientModule} from '@angular/common/http';
 import { ComCComponent } from './com-c/com-c.component';
+import { ClientModalComponent } from './modules/client-modal/client-modal.component';
 
 
 @NgModule({
@@ -30,6 +31,7 @@ import { ComCComponent } from './com-c/com-c.component';
     ContenedorComponent,
     CardPercentComponent,
     ComCComponent,
+    ClientModalComponent,
   ],
     
   imports: [

@@ -10,9 +10,6 @@ const routes: Routes = [
     path: '', component: LayoutComponent, children: [
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
       { path: 'dashboard', component: DashboardComponent },
-      { path: 'rides', 
-        loadChildren: () => import('@modules/rides/rides.module').then((m) => m.RidesModule)
-      },
       {
         path: 'clients',
         loadChildren: () => import('@modules/clients/clients.module').then((m) => m.ClientsModule),
@@ -26,6 +23,9 @@ const routes: Routes = [
         loadChildren: () => import('@modules/shift/shift.module').then((m) => m.ShiftModule),
       }
     ]
+  },
+  { path: 'rides',  
+    loadChildren: () => import('@modules/rides/rides.module').then((m) => m.RidesModule)
   },
 ];
 
