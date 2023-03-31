@@ -6,8 +6,8 @@
     <div class="card">
         <ng-container *ngFor="let moderator of moderatorsList">
             <div class="card__container">
-                <img [src]="moderator.photo" [alt]="moderator.name" class="card__container--img">
-                <h3 [innerHTML]="moderator.name|titlecase" class="card__container--tilte"></h3>
+                <img [src]="moderator.photo" [alt]="moderator.name" class="card__img">
+                <h3 [innerHTML]="moderator.name|titlecase" class="card__title"></h3>
             </div>
         </ng-container>
     </div>
