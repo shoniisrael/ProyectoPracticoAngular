@@ -14,7 +14,7 @@ export class RidesComponent {
   constructor(private ridesService: RidesService){
     this.ridesList$ = this.ridesService.getRideList()
     .pipe(
-      tap(console));
+      tap((data)=>console.info(data, 'data de db')));
   }
 
 }
