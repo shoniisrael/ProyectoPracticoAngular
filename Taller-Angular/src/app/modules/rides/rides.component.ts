@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import { RidesService } from 'src/app/services/rides.service';
+import { Observable, tap } from 'rxjs';
+import { Ride } from '../../models/rides.interface';
+import { RidesService } from '../../services/rides.service';
 
 @Component({
   selector: 'app-rides',
@@ -7,9 +9,12 @@ import { RidesService } from 'src/app/services/rides.service';
   styleUrls: ['./rides.component.scss']
 })
 export class RidesComponent {
+  ridesList$: Observable<Ride[]>;
 
   constructor(private ridesService: RidesService){
-console.log(ridesService.getRideList())
+    this.ridesList$ = this.ridesService.getRideList()
+    .pipe(
+      tap(console));
   }
 
 }

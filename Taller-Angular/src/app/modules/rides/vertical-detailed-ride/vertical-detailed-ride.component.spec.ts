@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { VerticalDetailedRideComponent } from './vertical-detailed-ride.component';
+import { VerticalDetailedRideComponent } from '../vertical-detailed-ride/vertical-detailed-ride.component';
 
 describe('VerticalDetailedRideComponent', () => {
   let component: VerticalDetailedRideComponent;

@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import {environment} from "../../environments/environment";
 import { catchError, Observable} from 'rxjs';
 import { Ride } from '../models/rides.interface';
-import { handleError } from '@modules/shared/functions/handle-error-function';
+import { handleError } from '../modules/shared/functions/handle-error-function';
 
 
 @Injectable({
