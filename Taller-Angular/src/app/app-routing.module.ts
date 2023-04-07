@@ -7,30 +7,41 @@ import { RidesComponent } from './modules/rides/rides.component';
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   {
-    path: '', component: LayoutComponent, children: [
+    path: '',
+    component: LayoutComponent,
+    children: [
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
       { path: 'dashboard', component: DashboardComponent },
       {
         path: 'clients',
-        loadChildren: () => import('@modules/clients/clients.module').then((m) => m.ClientsModule),
+        loadChildren: () =>
+          import('@modules/clients/clients.module').then(
+            (m) => m.ClientsModule
+          ),
       },
       {
         path: 'moderators',
-        loadChildren: () => import('@modules/moderator/moderator.module').then((m) => m.ModeratorModule),
+        loadChildren: () =>
+          import('@modules/moderator/moderator.module').then(
+            (m) => m.ModeratorModule
+          ),
       },
       {
         path: 'shift',
-        loadChildren: () => import('@modules/shift/shift.module').then((m) => m.ShiftModule),
-      }
-    ]
-  },
-  { path: 'rides',  
-    loadChildren: () => import('@modules/rides/rides.module').then((m) => m.RidesModule)
+        loadChildren: () =>
+          import('@modules/shift/shift.module').then((m) => m.ShiftModule),
+      },
+      {
+        path: 'rides',
+        loadChildren: () =>
+          import('@modules/rides/rides.module').then((m) => m.RidesModule),
+      },
+    ],
   },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
