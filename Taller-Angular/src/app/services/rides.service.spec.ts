@@ -1,12 +1,14 @@
 import { TestBed } from '@angular/core/testing';
 
 import { Ride } from '../models/rides.interface';
+
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { environment } from "../../environments/environment";
 import { RidesService } from '../../app/services/rides.service';
 import { mockRide } from '../modules/shared/mocks/rides.mock';
 
 const mockRideList: Ride[] = [mockRide];
+
 
 describe('RidesService', () => {
   let service: RidesService;
@@ -29,14 +31,13 @@ describe('RidesService', () => {
     expect(service).toBeTruthy();
   });
   it('should get a list of rides', (doneFn) => {
-    service.getRideList()
-      .subscribe(data => {
-        expect(data).toEqual(mockRideList);
-        doneFn();
-      });
+    service.getRideList().subscribe((data) => {
+      expect(data).toEqual(mockRideList);
+      doneFn();
+    });
     const url = apiUrl;
     const req = httpController.expectOne(url);
     expect(req.request.method).toEqual('GET');
-    req.flush(mockRideList)
+    req.flush(mockRideList);
   });
 });

@@ -15,68 +15,56 @@
           <th>Income</th>
         </tr>
       </thead>
-      <tbody>
-        <tr>
+      <tbody *ngIf="rides$ | async as rides">
+        <tr *ngFor="let ride of rides">
           <td><input type="checkbox" /></td>
 
           <td class="column">
             <div class="column__avatar-column">
-              <img  src="https://i.pravatar.cc/307">
+              <img [src]="ride.user.avatar" />
             </div>
             <div class="column__avatar-container">
-              <span>Sierra Fergunson</span>
-              <span>+593 438 4763 28</span>
+              <span>{{ ride.user.name }} </span>
+              <span>{{ ride.user.phone }} </span>
             </div>
           </td>
-          <td>simple</td>
-          <td>04.12.2021.20:30</td>
-          <td>21 Homidulo Oripov </td>
-          <td>21 Homidulo Oripov</td>
-          <td class="">Información 6</td>
-
-        </tr>
-        <tr>
-          <td><input type="checkbox" /></td>
-          <td><img src="https://i.pravatar.cc/308"></td>
-          <td>otra</td>
-          <td>04.12.2021.20:30</td>
-          <td>21 Homidulo Oripov </td>
-          <td>21 Homidulo Oripov</td>
-          <td>Información 6</td>
-        </tr>
-        <tr>
-          <td><input type="checkbox" /></td>
-          <td><img src="https://i.pravatar.cc/309"></td>
-          <td>comenient</td>
-          <td>04.12.2021.20:30</td>
-          <td>21 Homidulo Oripov </td>
-          <td>21 Homidulo Oripov</td>
-          <td>Información 6</td>
-        </tr>
-        <tr>
-          <td><input type="checkbox" /></td>
-          <td><img src="https://i.pravatar.cc/310"></td>
-          <td>comenient</td>
-          <td>04.12.2021.20:30</td>
-          <td>21 Homidulo Oripov </td>
-          <td>21 Homidulo Oripov</td>
-          <td>Información 6</td>
-        </tr>
-        <tr>
-          <td><input type="checkbox" /></td>
-          <td><img src="https://i.pravatar.cc/311"></td>
-          <td>comenient</td>
-          <td>04.12.2021.20:30</td>
-          <td>21 Homidulo Oripov </td>
-          <td>21 Homidulo Oripov</td>
-          <td>Información 6</td>
+          <td>{{ ride.car_comfort }}</td>
+          <td>{{ ride.ordered_time }}</td>
+          <td>{{ ride.start_location }}</td>
+          <td>{{ ride.finish_location }}</td>
+          <td class="income">
+            <div class="income__decoration">
+              {{ ride.income }}
+            </div>
+          </td>
         </tr>
       </tbody>
     </table>
     <div class="pagination">
-      <a href="#">1</a>
-      <a href="#">2</a>
-
+      <button
+        type="button"
+        (click)="nextPage(current - 1)"
+        [disabled]="previous"
+      >
+        <
+      </button>
+      <button
+        [ngClass]="{ 'button-active': current === 1 }"
+        type="button"
+        (click)="nextPage(1)"
+      >
+        1
+      </button>
+      <button
+        type="button"
+        (click)="nextPage(2)"
+        [ngClass]="{ 'button-active': current === 2 }"
+      >
+        2
+      </button>
+      <button type="button" (click)="nextPage(current + 1)" [disabled]="next">
+        >
+      </button>
     </div>
   </div>
   <div>
