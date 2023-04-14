@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
-import { BehaviorSubject, Observable, switchMap } from 'rxjs';
-import { Ride } from 'src/app/models/rides.interface';
-import { RidesService } from 'src/app/services/rides.service';
+
+import { Observable, tap } from 'rxjs';
+import { Ride } from '../../models/rides.interface';
+import { RidesService } from '../../services/rides.service';
+
 
 @Component({
   selector: 'app-rides',
@@ -9,16 +11,14 @@ import { RidesService } from 'src/app/services/rides.service';
   styleUrls: ['./rides.component.scss'],
 })
 export class RidesComponent {
-  rides$!: Observable<Ride[]>;
-  previous: boolean = true;
-  next: boolean = false;
-  dataRides$: BehaviorSubject<{ page: number; size: number }> =
-    new BehaviorSubject<{ page: number; size: number }>({ page: 1, size: 5 });
-  current: number = 1;
-  constructor(private ridesService: RidesService) {
-    this.rides$ = this.dataRides$.pipe(
-      switchMap(({ page, size }) => this.ridesService.getRideList(page, size))
-    );
+
+  ridesList$: Observable<Ride[]>;
+
+  constructor(private ridesService: RidesService){
+    this.ridesList$ = this.ridesService.getRideList()
+    .pipe(
+      tap((data)=>console.info(data, 'data de db')));
+
   }
 
   nextPage(page: number) {
