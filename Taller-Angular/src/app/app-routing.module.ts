@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { LayoutComponent } from './modules/shared/layout/layout.component';
 import { LoginComponent } from './components/pages/login/login.component';
 import { DashboardComponent } from './modules/shared/components/dashboard/dashboard.component';
-import { RidesComponent } from './modules/rides/rides.component';
+
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   {
@@ -17,11 +17,17 @@ const routes: Routes = [
       },
       {
         path: 'clients',
-        loadChildren: () => import('@modules/clients/clients.module').then((m) => m.ClientsModule),
+        loadChildren: () =>
+          import('@modules/clients/clients.module').then(
+            (m) => m.ClientsModule
+          ),
       },
       {
         path: 'moderators',
-        loadChildren: () => import('@modules/moderator/moderator.module').then((m) => m.ModeratorModule),
+        loadChildren: () =>
+          import('@modules/moderator/moderator.module').then(
+            (m) => m.ModeratorModule
+          ),
       },
       {
         path: 'shift',
@@ -37,6 +43,6 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
