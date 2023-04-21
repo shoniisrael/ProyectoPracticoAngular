@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Observable } from 'rxjs';
+import { ModeratorService } from '../../services/moderator.service';
 
 @Component({
   selector: 'app-moderator',
@@ -6,8 +8,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./moderator.component.scss']
 })
 export class ModeratorComponent {
-  moderatorsList = [
-    { name: 'user1', photo: 'https://i.pravatar.cc/300' },
-    { name: 'user2', photo: 'https://i.pravatar.cc/300' },
-    { name: 'user3', photo: 'https://i.pravatar.cc/300' }]
+  moderatorsList$!: Observable<any>;
+  
+  constructor(private moderatorService: ModeratorService){
+    this.moderatorsList$ = this.moderatorService.getmoderatorsList();
+  }
+  
 }

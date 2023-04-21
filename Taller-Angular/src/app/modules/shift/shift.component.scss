@@ -1,0 +1,59 @@
+hr{
+    border-width: 0px;
+    height: 1px;
+    background-color: #E5E7EB;
+}
+
+td{
+    padding: 0.5em;
+}
+
+.table {
+    margin: 1.5rem auto;
+    max-width: 1000px;
+    width: 80%;
+    color: var(--blue-dark-color);
+    
+
+    &__head {
+        text-align: left;
+        background-color: #F7F8FA;
+        border: 1px solid #EFF0F4;
+        display: table-caption;
+        border-radius: 8px;
+        padding: 0.5em;
+        &--th2{
+            width: 212px;
+        }
+
+    }
+
+    &__body {
+        display: table-row;
+        &--number{
+            color: var(--dark-color);
+        }
+    }
+}
+
+.footer{
+    display: flex;
+    justify-content: space-between;
+    
+}
+.pagination {
+    margin-top: 20px;
+    text-align: right;
+
+    a {
+        display: inline-block;
+        padding: 5px 10px;
+        background-color: #eee;
+        color: black;
+        margin-right: 5px;
+
+        &:hover {
+            background-color: #ddd;
+        }
+    }
+}

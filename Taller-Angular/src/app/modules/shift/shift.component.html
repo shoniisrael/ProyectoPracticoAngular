@@ -1,1 +1,30 @@
-<p>shift works!</p>
+<div>
+    <table class="table">
+        <thead class="table__head">
+            <tr class="table__head--tr">
+                <th class="table__head--th1">N°</th>
+                <th class="table__head--th2">Branche name</th>
+                <th class="table__head--th3">Free km</th>
+            </tr>
+        </thead>
+        <tbody class="table__body">
+            <ng-container *ngFor="let item of shiftlist$ | async">
+                <tr>
+                    <td [innerHTML]="item.numberShift" class="table__body--number"></td>
+                    <td [innerHTML]="item.branchName"></td>
+                    <td [innerHTML]="item.freeKm"></td>
+                </tr>
+
+            </ng-container>
+        </tbody>
+        <hr>
+        <div class="footer">
+            <p class="totalCount">Total users: 98</p>
+            <div class="pagination">
+                <a href="#">1</a>
+                <a href="#">2</a>
+
+            </div>
+        </div>
+    </table>
+</div>

@@ -7,9 +7,14 @@ import { RidesComponent } from './modules/rides/rides.component';
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   {
-    path: '', component: LayoutComponent, children: [
-      { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
-      { path: 'dashboard', component: DashboardComponent },
+    path: '', component: LayoutComponent,
+    children: [
+      { 
+        path: '', redirectTo: 'dashboard', pathMatch: 'full' 
+      },
+      { 
+        path: 'dashboard', component: DashboardComponent
+      },
       {
         path: 'clients',
         loadChildren: () => import('@modules/clients/clients.module').then((m) => m.ClientsModule),
@@ -24,7 +29,8 @@ const routes: Routes = [
       }
     ]
   },
-  { path: 'rides',  
+  {
+    path: 'rides',
     loadChildren: () => import('@modules/rides/rides.module').then((m) => m.RidesModule)
   },
 ];
