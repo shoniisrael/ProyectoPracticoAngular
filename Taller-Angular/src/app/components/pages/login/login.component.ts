@@ -38,7 +38,7 @@ export class LoginComponent {
   buildForm() {
     this.loginForm = this.fb.group({
       // phoneNumber: [null, [Validators.required, Validators.minLength(10), Validators.pattern(/^(09|\+593)[1-9]\d{7}$/)]],
-      email: [null],
+      email: [null, [Validators.required, Validators.email]],
      password: [null, [Validators.required, Validators.minLength(8), Validators.pattern(/^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*])(?!.*\s).{8,}$/)]]
       
     });
