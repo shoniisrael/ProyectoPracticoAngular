@@ -13,7 +13,7 @@ export class ShiftService {
   private endpoint = 'shift';
   constructor(private http: HttpClient) { }
   
-  getshiftList(): Observable<any[]>{
+  getShiftList(): Observable<any[]>{
     return this.http.get<any[]>(this.url+this.endpoint)
     .pipe(catchError(handleError));
   }

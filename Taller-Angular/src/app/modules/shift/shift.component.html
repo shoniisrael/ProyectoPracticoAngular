@@ -1,4 +1,30 @@
-<div>
+<div class=" shift-section">
+    <div class="shift-section__header">
+        <h1 class="shift-section__title">Shift Report</h1>
+<div class="shift-section__icon">
+    <app-icon name="icon-menu" class=""></app-icon>
+</div>
+       
+    </div>
+    <form class="form-container">
+       
+            <div class="form-container__item form-container__item--1">
+             <app-input [control]="name" label="Name" placeholder="Placeholder test" [border]="'solid 1px #E4E6EE'"></app-input>
+            </div>
+            <div class="form-container__item form-container__item--2">
+                <app-input [control]="perKm" label="Per KM" placeholder="Placeholder test" [border]="'solid 1px #E4E6EE'"></app-input>
+            </div>
+            <div class="form-container__item-full form-container__item--3">
+                <app-input [control]="value" label="Value" placeholder="Placeholder test" [border]="'solid 1px #E4E6EE'"></app-input>
+            </div>
+            <div class="form-container__item-buttons form-container__item--4">
+             <app-button name="Button 1"  [color]="'var(--primary-color)'" [border]="'solid 1px var(--primary-color)'" ></app-button>
+             <app-button name="Button 2" [color]="'var(--tertiary-color)'" [border]="'solid 1px var(--tertiary-color)'"></app-button>
+
+            </div>
+       
+          
+    </form>
     <table class="table">
         <thead class="table__head">
             <tr class="table__head--tr">
@@ -8,7 +34,7 @@
             </tr>
         </thead>
         <tbody class="table__body">
-            <ng-container *ngFor="let item of shiftlist$ | async">
+            <ng-container *ngFor="let item of shiftList$ | async">
                 <tr>
                     <td [innerHTML]="item.numberShift" class="table__body--number"></td>
                     <td [innerHTML]="item.branchName"></td>

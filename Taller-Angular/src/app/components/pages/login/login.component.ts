@@ -20,7 +20,7 @@ export class LoginComponent {
     private fb: FormBuilder,
     private loginService: LoginService,
     private router: Router) {
-    
+
     this.buildForm();
     this.loginSend$
       .pipe(
@@ -39,8 +39,8 @@ export class LoginComponent {
     this.loginForm = this.fb.group({
       // phoneNumber: [null, [Validators.required, Validators.minLength(10), Validators.pattern(/^(09|\+593)[1-9]\d{7}$/)]],
       email: [null, [Validators.required, Validators.email]],
-     password: [null, [Validators.required, Validators.minLength(8), Validators.pattern(/^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*])(?!.*\s).{8,}$/)]]
-      
+      password: [null, [Validators.required, Validators.minLength(8), Validators.pattern(/^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*])(?!.*\s).{8,}$/)]]
+
     });
   }
   getLogin() {
@@ -56,6 +56,6 @@ export class LoginComponent {
     this.loginSend$.next(true)
 
   }
- 
+
 
 }

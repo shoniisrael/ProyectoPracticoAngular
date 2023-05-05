@@ -29,6 +29,7 @@ import { AuthInterceptor } from './auth.interceptor';
     ContenedorComponent,
     CardPercentComponent,
     ClientModalComponent,
+   
   ],
     
   imports: [

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { environment } from "../../environments/environment";
-import { catchError, mapTo, Observable, tap } from 'rxjs';
+import { BehaviorSubject, catchError, mapTo, Observable, tap } from 'rxjs';
 import { handleError } from '../modules/shared/functions/handle-error-function';
 
 
@@ -10,24 +10,29 @@ import { handleError } from '../modules/shared/functions/handle-error-function';
 })
 export class LoginService {
   private url = environment.apiUrl;
-  private httpOptions = {
-    headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
-  };
-  user={
-    role: sessionStorage.getItem('role')
-  };
-  constructor(private http: HttpClient) { }
- 
+
+  private userSource = new BehaviorSubject<any>({});
+  currentUser = this.userSource.asObservable();
+
+  constructor(private http: HttpClient) { 
+    this.getUserFromSessionStorage();
+  }
+
+  changeUser(user: any) {
+    this.userSource.next(user);
+  }
+
   login(body: UserLogin): Observable<any> {
     console.log(body)
-   
+
     return this.http.post<any>(`${this.url}login`, body)
       .pipe(
         tap(response => {
-          if (response && response.length > 0) {
+          if (response) {
             sessionStorage.setItem('token', response.accessToken); // Almacenar el token en sessionStorage
-
-            this.user = response.user
+            sessionStorage.setItem('user', JSON.stringify(response.user));
+            
+            this.changeUser(response.user);
           }
         }), mapTo({
           status: true,
@@ -35,8 +40,15 @@ export class LoginService {
         }),
         catchError(handleError));
   }
+
+  getUserFromSessionStorage() {
+    const user = sessionStorage.getItem('user');
+    if (user) {
+      this.changeUser(JSON.parse(user)); // Actualizar el valor del BehaviorSubject
+    }
+  }
 }
-interface UserLogin{
+interface UserLogin {
   phoneNumber?: string;
   password: string;
   email?: string;
