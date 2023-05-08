@@ -10,7 +10,7 @@ const routes: Routes = [
     path: '', component: LayoutComponent,
     children: [
       { 
-        path: '', redirectTo: 'dashboard', pathMatch: 'full' 
+        path: '', redirectTo: 'login', pathMatch: 'full' 
       },
       { 
         path: 'dashboard', component: DashboardComponent

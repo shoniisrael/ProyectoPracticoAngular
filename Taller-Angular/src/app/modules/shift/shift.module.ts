@@ -6,6 +6,7 @@ import { IconComponent } from '@modules/shared/icon/icon.component';
 import { InputComponent } from '@modules/shared/input/input.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ButtonComponent } from '@modules/shared/button/button.component';
+import { TableComponent } from '@modules/shared/components/table/table.component';
 
 const routes: Routes = [
   {
@@ -24,6 +25,7 @@ const routes: Routes = [
     IconComponent,
     InputComponent,
     ReactiveFormsModule,
+    TableComponent,
     RouterModule.forChild(routes),
   ]
 })
