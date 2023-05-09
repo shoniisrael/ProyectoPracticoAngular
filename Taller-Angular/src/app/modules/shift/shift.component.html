@@ -27,6 +27,7 @@
           
     </form>
   
-    <app-table [tableHeaders]="headersArray" [arrayName$]="shiftList$"></app-table>
+    <app-table [totalUsers]="totalCount" [tableHeaders]="headersArray" [arrayName$]="shiftList$" (pageSelected)="onPageSelected($event)"></app-table>
+
 
 </div>

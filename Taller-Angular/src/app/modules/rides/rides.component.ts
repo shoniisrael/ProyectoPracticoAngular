@@ -21,11 +21,4 @@ export class RidesComponent {
 
   }
 
-  // nextPage(page: number) {
-  //   this.previous = page === 1 ? true : false;
-  //   this.next = page === 2 ? true : false;
-
-  //   this.current = page;
-  //   this.dataRides$.next({ page, size: 5 });
-  // }
 }

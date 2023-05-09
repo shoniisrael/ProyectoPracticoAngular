@@ -11,11 +11,11 @@ server.use(middlewares)
 
 server.use(auth);
 
-const rules = auth.rewriter({
-    rides: 664
-})
+// const rules = auth.rewriter({
+//     rides: 664
+// })
 
-server.use(rules)
+// server.use(rules)
 server.db = router.db
 
 server.use(router)

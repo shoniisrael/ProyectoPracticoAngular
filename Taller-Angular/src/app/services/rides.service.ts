@@ -19,6 +19,5 @@ export class RidesService {
   getRideList(): Observable<Ride[]>{
     return this.http.get<Ride[]>(this.url+this.endpoint)
     .pipe(catchError(handleError));
-
   }
 }

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { Observable, tap } from 'rxjs';
+import {  Observable, tap } from 'rxjs';
 import { TableHeader } from 'src/app/models/rides.interface';
 import { ShiftService } from 'src/app/services/shift.service';
 
@@ -10,23 +10,28 @@ import { ShiftService } from 'src/app/services/shift.service';
   styleUrls: ['./shift.component.scss']
 })
 export class ShiftComponent {
-  shiftList!: any[];
+  totalCount = 0;
+  
   shiftList$: Observable<any> = this.shiftService.getShiftList()
   .pipe(
-    tap((data: any) => this.shiftList = data) // solo muestra en consola la lista, quitar cuando ya este en la tabla
+    tap((data: any) => this.totalCount= data.length) 
   );
   shiftForm!: FormGroup;
-  headersArray: TableHeader[] = [{label: 'N°', property:'numberShift'},{label: 'Branch name', property:'branchName'}, {label: 'Free km', property:'freeKm'}]
+  headersArray: TableHeader[] = [{label: 'N°', property:'numberShift'}, {label: 'Branch name', property:'branchName'}, {label: 'Free km', property:'freeKm'}]
 
   constructor(private shiftService: ShiftService, private fb: FormBuilder) {
    this.buildForm();
   }
+
   buildForm(){
     this.shiftForm = this.fb.group({
       name: [null, [Validators.required, Validators.minLength(4)]],
       perKm: [null, [Validators.required, Validators.minLength(4)]],
       value: [null, [Validators.required, Validators.minLength(4)]]
     })
+  }
+  onPageSelected(pageNumber: number) {
+    console.log(pageNumber)
   }
   get name():FormControl{
     return this.shiftForm.get('name') as FormControl

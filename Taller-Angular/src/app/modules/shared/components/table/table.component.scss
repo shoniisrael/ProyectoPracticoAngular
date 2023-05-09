@@ -30,6 +30,16 @@ td {
         &--1 {
             color: var(--dark-color);
         }
+        &--user{
+            display: flex;
+        }
+        &--img{
+            width: 60px;
+            height: 60px;
+            border-radius: 100%;
+            padding: 4px;
+            border: 2px solid var(--light-gray-color);
+        }
     }
 }
 
