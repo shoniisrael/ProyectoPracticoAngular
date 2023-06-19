@@ -1,23 +1,22 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-
+import { HttpClient, HttpParams } from '@angular/common/http';
 import {environment} from "../../environments/environment";
 import { catchError, Observable} from 'rxjs';
-
-import { Ride } from '../models/rides.interface';
 import { handleError } from '../modules/shared/functions/handle-error-function';
 
-@Injectable({
-  providedIn: 'root',
-})
-export class RidesService {
-  private url = environment.apiUrl;
-  private endpoint = 'rides';
 
+@Injectable({
+  providedIn: 'root'
+})
+export class ShiftService {
+  private url = environment.apiUrl;
+  private endpoint = 'shift';
+ 
   constructor(private http: HttpClient) { }
   
-  getRideList(): Observable<Ride[]>{
-    return this.http.get<Ride[]>(this.url+this.endpoint)
+  getShiftList(): Observable<any[]>{
+    
+    return this.http.get<any[]>(this.url+this.endpoint)
     .pipe(catchError(handleError));
   }
 }

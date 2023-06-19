@@ -4,7 +4,6 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LoginComponent } from './components/pages/login/login.component';
 import { SidebarComponent} from './modules/shared/components/sidebar/sidebar.component';
 import { IconComponent } from './modules/shared/icon/icon.component';
 import { LayoutComponent } from './modules/shared/layout/layout.component';
@@ -14,24 +13,22 @@ import { CardDriverComponent } from './components/organisms/card-driver/card-dri
 import { ContenedorComponent } from './components/organisms/contenedor/contenedor.component';
 import { CardPercentComponent } from './components/organisms/card-percent/card-percent.component';
 
-import {HttpClientModule} from '@angular/common/http';
-import { ComCComponent } from './com-c/com-c.component';
+import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import { ClientModalComponent } from './modules/client-modal/client-modal.component';
+import { AuthInterceptor } from './auth.interceptor';
 
 
 @NgModule({
 
   declarations: [
     AppComponent,
-    LoginComponent,
     LayoutComponent,
     DashboardComponent,
     HeaderComponent,
     CardDriverComponent,
     ContenedorComponent,
     CardPercentComponent,
-    ComCComponent,
-    ClientModalComponent,
+    ClientModalComponent,   
   ],
     
   imports: [
@@ -39,9 +36,12 @@ import { ClientModalComponent } from './modules/client-modal/client-modal.compon
     AppRoutingModule,
     SidebarComponent,
     IconComponent,
-    HttpClientModule
+    HttpClientModule,
+   
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

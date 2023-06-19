@@ -15,8 +15,8 @@
           <th>Income</th>
         </tr>
       </thead>
-      <tbody *ngIf="rides$ | async as rides">
-        <tr *ngFor="let ride of rides">
+      <tbody *ngIf="ridesList$ | async">
+        <tr *ngFor="let ride of ridesList$ | async">
           <td><input type="checkbox" /></td>
 
           <td class="column">
@@ -41,30 +41,9 @@
       </tbody>
     </table>
     <div class="pagination">
-      <button
-        type="button"
-        (click)="nextPage(current - 1)"
-        [disabled]="previous"
-      >
-        <
-      </button>
-      <button
-        [ngClass]="{ 'button-active': current === 1 }"
-        type="button"
-        (click)="nextPage(1)"
-      >
-        1
-      </button>
-      <button
-        type="button"
-        (click)="nextPage(2)"
-        [ngClass]="{ 'button-active': current === 2 }"
-      >
-        2
-      </button>
-      <button type="button" (click)="nextPage(current + 1)" [disabled]="next">
-        >
-      </button>
+      <button type="button" > </button>
+      <button type="button" > 1</button>
+      <button type="button" > 2</button>
     </div>
   </div>
   <div>

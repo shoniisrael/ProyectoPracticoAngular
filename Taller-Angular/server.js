@@ -6,22 +6,20 @@ const router = jsonServer.router(path.join(__dirname, 'db.json'))
 const middlewares = jsonServer.defaults()
 const jwt = require("jsonwebtoken");
 
-const validatorsPokemon = ["name", "image", "attack", "defense", "hp", "type"]
-
-const validatorsUser = ["email", "password", "role", "firstName", "lastName", "age", "identification"]
-
+server.use(jsonServer.bodyParser)
 server.use(middlewares)
 
-server.use(jsonServer.bodyParser)
+server.use(auth);
 
-const rules = auth.rewriter({
-    rides: 664
-})
+// const rules = auth.rewriter({
+//     rides: 664
+// })
 
-server.use(rules)
+// server.use(rules)
 server.db = router.db
-server.use(auth)
+
 server.use(router)
+
 
 server.listen(3000, () => {
     console.log('JSON Server is running')

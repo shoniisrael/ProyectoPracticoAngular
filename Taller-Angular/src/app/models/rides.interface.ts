@@ -13,3 +13,7 @@ export interface User {
     avatar: string;
 }
 
+export interface TableHeader {
+    label: string;
+    property: string;
+  }

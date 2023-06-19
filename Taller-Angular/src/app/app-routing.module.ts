@@ -3,15 +3,18 @@ import { RouterModule, Routes } from '@angular/router';
 import { LayoutComponent } from './modules/shared/layout/layout.component';
 import { LoginComponent } from './components/pages/login/login.component';
 import { DashboardComponent } from './modules/shared/components/dashboard/dashboard.component';
-import { RidesComponent } from './modules/rides/rides.component';
+
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   {
-    path: '',
-    component: LayoutComponent,
+    path: '', component: LayoutComponent,
     children: [
-      { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
-      { path: 'dashboard', component: DashboardComponent },
+      { 
+        path: '', redirectTo: 'login', pathMatch: 'full' 
+      },
+      { 
+        path: 'dashboard', component: DashboardComponent
+      },
       {
         path: 'clients',
         loadChildren: () =>
@@ -28,15 +31,13 @@ const routes: Routes = [
       },
       {
         path: 'shift',
-        loadChildren: () =>
-          import('@modules/shift/shift.module').then((m) => m.ShiftModule),
-      },
-      {
-        path: 'rides',
-        loadChildren: () =>
-          import('@modules/rides/rides.module').then((m) => m.RidesModule),
-      },
-    ],
+        loadChildren: () => import('@modules/shift/shift.module').then((m) => m.ShiftModule),
+      }
+    ]
+  },
+  {
+    path: 'rides',
+    loadChildren: () => import('@modules/rides/rides.module').then((m) => m.RidesModule)
   },
 ];
 

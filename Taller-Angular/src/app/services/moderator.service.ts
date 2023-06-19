@@ -1,23 +1,19 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-
 import {environment} from "../../environments/environment";
 import { catchError, Observable} from 'rxjs';
-
-import { Ride } from '../models/rides.interface';
 import { handleError } from '../modules/shared/functions/handle-error-function';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
-export class RidesService {
+export class ModeratorService {
   private url = environment.apiUrl;
-  private endpoint = 'rides';
-
+  private endpoint = 'moderators';
   constructor(private http: HttpClient) { }
   
-  getRideList(): Observable<Ride[]>{
-    return this.http.get<Ride[]>(this.url+this.endpoint)
+  getmoderatorsList(): Observable<any[]>{
+    return this.http.get<any[]>(this.url+this.endpoint)
     .pipe(catchError(handleError));
   }
 }
