@@ -15,6 +15,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ClientModalComponent } from './modules/client-modal/client-modal.component';
 import { AuthInterceptor } from './auth.interceptor';
 import { MainCardLayoutComponent } from '@modules/shared/main-card-layout/main-card-layout.component';
+import { NotFoundComponent } from './modules/shared/components/not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { MainCardLayoutComponent } from '@modules/shared/main-card-layout/main-c
     ContenedorComponent,
     ClientModalComponent,
     MainCardLayoutComponent,
+    NotFoundComponent,
   ],
 
   imports: [
