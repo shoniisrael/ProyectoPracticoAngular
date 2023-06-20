@@ -1,14 +1,20 @@
 <section class="moderator-section">
-    <div class="moderator-section__header">
-        <h1 class="moderator-section__title">Moderators List</h1>
-        <button class="moderator-section__button">Add New Moderator</button>
-    </div>
-    <div class="card">
-        <ng-container *ngFor="let moderator of moderatorsList$ | async">
-            <div class="card__container">
-                <img [src]="moderator.photo" [alt]="moderator.name" class="card__img">
-                <h3 [innerHTML]="moderator.name|titlecase" class="card__title"></h3>
-            </div>
-        </ng-container>
-    </div>
+  <div class="moderator-section__header">
+    <h1 class="moderator-section__title">Moderators List</h1>
+    <button class="moderator-section__button">Add New Moderator</button>
+  </div>
+  <div class="card" *ngIf="moderatorsList$ | async as airTableRecords">
+    <ng-container *ngFor="let moderator of airTableRecords.records">
+      <div class="card__container">
+        <img
+          src="https://icons.iconarchive.com/icons/diversity-avatars/avatars/512/batman-icon.png"
+          [alt]="moderator.fields.Name"
+          class="card__img"
+        />
+        <h3 [innerHTML]="moderator.fields.Name | titlecase" class="card__title">
+          {{ moderator.fields.Name }} ao
+        </h3>
+      </div>
+    </ng-container>
+  </div>
 </section>

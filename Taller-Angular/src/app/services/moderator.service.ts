@@ -1,19 +1,22 @@
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import {environment} from "../../environments/environment";
-import { catchError, Observable} from 'rxjs';
+import { environment } from '../../environments/environment';
+import { catchError, Observable } from 'rxjs';
 import { handleError } from '../modules/shared/functions/handle-error-function';
+import { AirTableData } from '../models/record.interface';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ModeratorService {
-  private url = environment.apiUrl;
-  private endpoint = 'moderators';
-  constructor(private http: HttpClient) { }
-  
-  getmoderatorsList(): Observable<any[]>{
-    return this.http.get<any[]>(this.url+this.endpoint)
-    .pipe(catchError(handleError));
+  private endpoint = 'appVKGaPxptaKmoJG/tblsfrPpxpoPaPldW';
+  private url = environment.apiUrl + this.endpoint;
+
+  constructor(private httpClient: HttpClient) {}
+
+  getModeratorsList(): Observable<AirTableData> {
+    return this.httpClient
+      .get<AirTableData>(this.url)
+      .pipe(catchError(handleError));
   }
 }

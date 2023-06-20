@@ -7,26 +7,27 @@ import { ModeratorService } from '../../services/moderator.service';
 import { mockModerator } from '../../modules/shared/mocks/moderator.mock';
 import { ModeratorComponent } from './moderator.component';
 
-
-let mockModeratorsService: { getmoderatorsList: jest.Mock<any, any, any>; };
+let mockModeratorsService: { getModeratorsList: jest.Mock<any, any, any> };
 mockModeratorsService = {
-  getmoderatorsList: jest.fn()
-}
+  getModeratorsList: jest.fn(),
+};
 describe('ModeratorComponent', () => {
   let component: ModeratorComponent;
   let fixture: ComponentFixture<ModeratorComponent>;
 
   beforeEach(async () => {
-    mockModeratorsService.getmoderatorsList.mockImplementation(()=>of([mockModerator]))
+    mockModeratorsService.getModeratorsList.mockImplementation(() =>
+      of([mockModerator])
+    );
     await TestBed.configureTestingModule({
-      declarations: [ ModeratorComponent ],
-      providers:[
+      declarations: [ModeratorComponent],
+      providers: [
         {
-          provide: ModeratorService, useValue: mockModeratorsService
-        }
-      ]
-    })
-    .compileComponents();
+          provide: ModeratorService,
+          useValue: mockModeratorsService,
+        },
+      ],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(ModeratorComponent);
     component = fixture.componentInstance;
