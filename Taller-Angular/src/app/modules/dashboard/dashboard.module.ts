@@ -7,6 +7,8 @@ import { CardDriverComponent } from 'src/app/components/organisms/card-driver/ca
 import { CardPercentComponent } from 'src/app/components/organisms/card-percent/card-percent.component';
 import { IconComponent } from '@modules/shared/icon/icon.component';
 import { TopDriversComponent } from './components/top-drivers/top-drivers.component';
+import { HorizontalCardsComponent } from './components/horizontal-cards/horizontal-cards.component';
+import { SingleHorizontalCardComponent } from './components/single-horizontal-card/single-horizontal-card.component';
 
 const routes: Routes = [
   {
@@ -21,6 +23,8 @@ const routes: Routes = [
     CardDriverComponent,
     CardPercentComponent,
     TopDriversComponent,
+    HorizontalCardsComponent,
+    SingleHorizontalCardComponent,
   ],
   imports: [CommonModule, IconComponent, RouterModule.forChild(routes)],
 })

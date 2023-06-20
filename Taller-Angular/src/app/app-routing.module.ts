@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { LayoutComponent } from './modules/shared/layout/layout.component';
 import { LoginComponent } from './components/pages/login/login.component';
 import { MainCardLayoutComponent } from '@modules/shared/main-card-layout/main-card-layout.component';
+import { NotFoundComponent } from '@modules/shared/components/not-found/not-found.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -32,6 +33,26 @@ const routes: Routes = [
               import('@modules/clients/clients.module').then(
                 (m) => m.ClientsModule
               ),
+          },
+          {
+            path: 'drivers',
+            component: NotFoundComponent,
+          },
+          {
+            path: 'map',
+            component: NotFoundComponent,
+          },
+          {
+            path: 'car',
+            component: NotFoundComponent,
+          },
+          {
+            path: 'branches',
+            component: NotFoundComponent,
+          },
+          {
+            path: 'settings',
+            component: NotFoundComponent,
           },
           {
             path: 'moderators',
