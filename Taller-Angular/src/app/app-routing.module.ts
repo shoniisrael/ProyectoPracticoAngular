@@ -7,16 +7,10 @@ import { MainCardLayoutComponent } from '@modules/shared/main-card-layout/main-c
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
-  { path: '', component: LoginComponent },
   {
     path: '',
     component: LayoutComponent,
     children: [
-      {
-        path: '',
-        redirectTo: 'login',
-        pathMatch: 'full',
-      },
       {
         path: '',
         component: MainCardLayoutComponent,
@@ -56,17 +50,7 @@ const routes: Routes = [
         loadChildren: () =>
           import('@modules/rides/rides.module').then((m) => m.RidesModule),
       },
-      {
-        path: 'shift',
-        loadChildren: () =>
-          import('@modules/shift/shift.module').then((m) => m.ShiftModule),
-      },
     ],
-  },
-  {
-    path: 'rides',
-    loadChildren: () =>
-      import('@modules/rides/rides.module').then((m) => m.RidesModule),
   },
 ];
 
