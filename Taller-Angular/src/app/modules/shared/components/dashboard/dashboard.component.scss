@@ -27,7 +27,7 @@
     font-weight: bold;
     display: flex;
     flex-direction: row;
-    padding: 5px 15px;
+    padding-left: 15px;
     justify-content: space-between;
 
     &__title{
@@ -40,12 +40,12 @@
 }
 
 .drivers-body{
-    width: 100%;
     padding-top: 10px;
     display: flex;
     flex-direction: column;
     gap: 20px;
     justify-content: center;
+    padding-left: 15px;
 }
 
 .know-card{

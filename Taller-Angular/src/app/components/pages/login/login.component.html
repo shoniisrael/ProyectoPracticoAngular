@@ -11,8 +11,8 @@
         <div class="form__body">
             <form action="" [formGroup]="loginForm" (submit)="sendLogin()">
                 <div class="input-group">
-                    <label for="PHONE NUMBER" class="input-group__label">EMAIL</label>
-                    <input type="text" class="input-group__input" placeholder="Enter your phone number" 
+                    <label for="PHONE NUMBER" class="input-group__label">PHONE NUMBER</label>
+                    <input type="text" class="input-group__input" placeholder="Enter your phone number"
                     [class.input-group__input--invalid]="loginForm.get('email')?.invalid && loginForm.get('email')?.touched" formControlName="email">
                     <small class="input-group--invalid" *ngIf="loginForm.get('email')?.errors?.['required'] && loginForm.get('email')?.touched">- This is required</small>
                     <small class="input-group--invalid" *ngIf="loginForm.get('phoneNumber')?.errors?.['minlength'] && loginForm.get('phoneNumber')?.touched">- Your number must contain at least 10 characters </small>
@@ -20,7 +20,7 @@
                 </div>
                 <div class="input-group">
                     <label for="PASSWORD" class="input-group__label">PASSWORD</label>
-                    <input type="password" class="input-group__input" placeholder="Enter your password" 
+                    <input type="password" class="input-group__input" placeholder="Enter your password"
                     [class.input-group__input--invalid]="loginForm.get('password')?.invalid && loginForm.get('password')?.touched" formControlName="password">
                     <small class="input-group--invalid" *ngIf="loginForm.get('password')?.errors?.['required'] && loginForm.get('password')?.touched">- Invalid Password</small>
                     <small class="input-group--invalid" *ngIf="loginForm.get('phoneNumber')?.errors?.['minlength'] && loginForm.get('phoneNumber')?.touched">- Your password must contain at least 10 characters </small>
@@ -36,5 +36,5 @@
             <p>Don't have account? <a class="form__link">Sign up</a></p>
         </div>
     </div>
-   
+
 </div>
