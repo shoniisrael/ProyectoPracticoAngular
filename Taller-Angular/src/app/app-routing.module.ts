@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LayoutComponent } from './modules/shared/layout/layout.component';
 import { LoginComponent } from './components/pages/login/login.component';
-import { DashboardComponent } from './modules/shared/components/dashboard/dashboard.component';
 import { MainCardLayoutComponent } from '@modules/shared/main-card-layout/main-card-layout.component';
 
 const routes: Routes = [
@@ -22,7 +21,10 @@ const routes: Routes = [
           },
           {
             path: 'dashboard',
-            component: DashboardComponent,
+            loadChildren: () =>
+              import('@modules/dashboard/dashboard.module').then(
+                (m) => m.DashboardModule
+              ),
           },
           {
             path: 'clients',
