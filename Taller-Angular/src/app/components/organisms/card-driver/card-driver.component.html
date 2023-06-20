@@ -1,13 +1,20 @@
 <div class="container">
+  <div class="container__right">
     <div class="container__avatar">
-        <img class="container__img" [src]="image">
+      <img class="container__img" [src]="image" />
     </div>
     <div class="container__info">
-        <div class="container__info-name">{{name}}</div>
-        <div class="container__info-phone">{{phone}}</div>
+      <div class="container__info-name">{{ name }}</div>
+      <div class="container__info-phone">{{ phone }}</div>
     </div>
-    <div class="container__stats">
-        <div>Orders: <b>{{orders}}</b></div>
-        <div>Income: <b>$ {{income}}</b></div>
+  </div>
+
+  <div class="container__stats">
+    <div>
+      Orders: <b>{{ orders }}</b>
     </div>
+    <div>
+      Income: <b>$ {{ income }}</b>
+    </div>
+  </div>
 </div>
