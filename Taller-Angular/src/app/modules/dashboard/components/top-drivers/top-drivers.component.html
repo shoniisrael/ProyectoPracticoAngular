@@ -1,27 +1,16 @@
-<ng-container>
+<ng-container *ngIf="drivers$ | async as drivers">
   <div class="container__header">
     <h1>Top Drivers</h1>
     <div class="container__header-icon">></div>
   </div>
-  <app-card-driver
-    image="https://i.pravatar.cc/300"
-    name="Steve Jimbo"
-    phone="+593 995 083 604"
-    orders="5"
-    income="98"
-  />
-  <app-card-driver
-    image="https://i.pravatar.cc/300"
-    name="Daniela Gonzales"
-    phone="+593 995 083 604"
-    orders="5"
-    income="98"
-  />
-  <app-card-driver
-    image="https://i.pravatar.cc/300"
-    name="Jessica Ballesteros"
-    phone="+593 995 083 604"
-    orders="5"
-    income="98"
-  />
+  <div *ngFor="let driver of drivers.records">
+    <app-card-driver
+      *ngIf="driver.fields as driverInfo"
+      [phone]="driverInfo.phone"
+      [name]="driverInfo.name"
+      [orders]="driverInfo.orders.toString()"
+      [income]="driverInfo.income.toString()"
+      [image]="'https://i.pravatar.cc/150?img=' + driverInfo.ID.toString()"
+    />
+  </div>
 </ng-container>
