@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 import { Observable, tap } from 'rxjs';
 import { Ride } from '../../models/rides.interface';
 import { RidesService } from '../../services/rides.service';
-
+import { AirTableData } from 'src/app/models/record.interface';
 
 @Component({
   selector: 'app-rides',
@@ -11,14 +11,11 @@ import { RidesService } from '../../services/rides.service';
   styleUrls: ['./rides.component.scss'],
 })
 export class RidesComponent {
+  ridesList$: Observable<AirTableData>;
 
-  ridesList$: Observable<Ride[]>;
-
-  constructor(private ridesService: RidesService){
-    this.ridesList$ = this.ridesService.getRideList()
-    .pipe(
-      tap((data)=>console.info(data, 'data de db')));
-
+  constructor(private ridesService: RidesService) {
+    this.ridesList$ = this.ridesService
+      .getRideList()
+      .pipe(tap((data) => console.info(data, 'data de db')));
   }
-
 }

@@ -8,7 +8,7 @@ import { ModeratorService } from './moderator.service';
 
 describe('ModeratorService', () => {
   let service: ModeratorService;
-  let httpMock: HttpTestingController;
+  let httpControllerMock: HttpTestingController;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -16,13 +16,16 @@ describe('ModeratorService', () => {
       providers: [ModeratorService],
     });
     service = TestBed.inject(ModeratorService);
-    httpMock = TestBed.inject(HttpTestingController);
+    httpControllerMock = TestBed.inject(HttpTestingController);
   });
 
   afterEach(() => {
-    httpMock.verify();
+    httpControllerMock.verify();
   });
 
+  it('should be created', () => {
+    expect(service).toBeTruthy();
+  });
   it('should retrieve the list of moderators', () => {
     const mockData = {
       records: [
@@ -34,7 +37,7 @@ describe('ModeratorService', () => {
       expect(data).toEqual(mockData);
     });
 
-    const req = httpMock.expectOne(service['url']);
+    const req = httpControllerMock.expectOne(service['url']);
     expect(req.request.method).toBe('GET');
     req.flush(mockData);
   });

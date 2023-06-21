@@ -1,6 +1,5 @@
 <section class="layout">
   <section class="layout_mainCard mainCard">
-    <ng-container *ngFor="let ride of ridesList$ | async"></ng-container>
     <div class="flex">
       <div class="table-wrapper">
         <app-progresivebar-rides></app-progresivebar-rides>
@@ -16,28 +15,30 @@
               <th>Income</th>
             </tr>
           </thead>
-          <tbody *ngIf="ridesList$ | async">
-            <tr *ngFor="let ride of ridesList$ | async">
-              <td><input type="checkbox" /></td>
+          <tbody *ngIf="ridesList$ | async as ridesList">
+            <tr *ngFor="let ride of ridesList.records">
+              <ng-container *ngIf="ride.fields as rideFields">
+                <td><input type="checkbox" /></td>
 
-              <td class="column">
-                <div class="column__avatar-column">
-                  <img [src]="ride.user.avatar" />
-                </div>
-                <div class="column__avatar-container">
-                  <span>{{ ride.user.name }} </span>
-                  <span>{{ ride.user.phone }} </span>
-                </div>
-              </td>
-              <td>{{ ride.car_comfort }}</td>
-              <td>{{ ride.ordered_time }}</td>
-              <td>{{ ride.start_location }}</td>
-              <td>{{ ride.finish_location }}</td>
-              <td class="income">
-                <div class="income__decoration">
-                  {{ ride.income }}
-                </div>
-              </td>
+                <td class="column">
+                  <div class="column__avatar-column">
+                    <img [src]="rideFields.userImageSrc" />
+                  </div>
+                  <div class="column__avatar-container">
+                    <span>{{ rideFields.userName }} </span>
+                    <span>{{ rideFields.userPhone }} </span>
+                  </div>
+                </td>
+                <td>{{ rideFields.carConfort }}</td>
+                <td>rideFields.ordered_time</td>
+                <td>{{ rideFields.startLocation }}</td>
+                <td>{{ rideFields.finishLocation }}</td>
+                <td class="income">
+                  <div class="income__decoration">
+                    {{ rideFields.income }}
+                  </div>
+                </td>
+              </ng-container>
             </tr>
           </tbody>
         </table>
