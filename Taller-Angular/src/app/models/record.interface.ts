@@ -9,6 +9,7 @@ export interface Fields {
   userName: string;
   userPhone: string;
   userImageSrc: string;
+  orderedTime: string;
   carConfort: string;
 }
 export interface Record {
