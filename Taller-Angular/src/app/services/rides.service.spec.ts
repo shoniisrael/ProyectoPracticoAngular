@@ -2,29 +2,35 @@ import { TestBed } from '@angular/core/testing';
 
 import { Ride } from '../models/rides.interface';
 
-import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
-import { environment } from "../../environments/environment";
+import {
+  HttpClientTestingModule,
+  HttpTestingController,
+} from '@angular/common/http/testing';
+import { environment } from '../../environments/environment';
 import { RidesService } from '../../app/services/rides.service';
 import { mockRide } from '../modules/shared/mocks/rides.mock';
 
-const mockRideList: Ride[] = [mockRide];
-
+const mockRideList = {
+  records: [
+    // Mock data goes here
+  ],
+};
 
 describe('RidesService', () => {
   let service: RidesService;
-  let httpController: HttpTestingController;
-  let apiUrl = environment.apiUrl + 'rides';
+  let httpControllerMock: HttpTestingController;
+  let apiUrl = environment.apiUrl;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [HttpClientTestingModule],
     });
     service = TestBed.inject(RidesService);
-    httpController = TestBed.inject(HttpTestingController);
+    httpControllerMock = TestBed.inject(HttpTestingController);
   });
 
   afterEach(() => {
-    httpController.verify();
+    httpControllerMock.verify();
   });
 
   it('should be created', () => {
@@ -36,7 +42,7 @@ describe('RidesService', () => {
       doneFn();
     });
     const url = apiUrl;
-    const req = httpController.expectOne(url);
+    const req = httpControllerMock.expectOne(service['url']);
     expect(req.request.method).toEqual('GET');
     req.flush(mockRideList);
   });

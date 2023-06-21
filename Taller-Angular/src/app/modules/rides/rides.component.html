@@ -1,54 +1,53 @@
 <section class="layout">
   <section class="layout_mainCard mainCard">
-    <ng-container *ngFor="let ride of ridesList$ | async"></ng-container>
-    <div class="flex">
-      <div class="table-wrapper">
-        <app-progresivebar-rides></app-progresivebar-rides>
-        <table>
-          <thead>
-            <tr>
-              <th><input type="checkbox" /></th>
-              <th>User</th>
-              <th>Car Comfort</th>
-              <th>Ordered Time</th>
-              <th>Start Location</th>
-              <th>Finish Location</th>
-              <th>Income</th>
-            </tr>
-          </thead>
-          <tbody *ngIf="ridesList$ | async">
-            <tr *ngFor="let ride of ridesList$ | async">
+    <div class="flex"></div>
+
+    <div class="table-wrapper">
+      <app-progresivebar-rides></app-progresivebar-rides>
+
+      <table>
+        <thead>
+          <tr>
+            <th><input type="checkbox" /></th>
+            <th>User</th>
+            <th>Car Comfort</th>
+            <th>Ordered Time</th>
+            <th>Start Location</th>
+            <th>Finish Location</th>
+            <th>Income</th>
+          </tr>
+        </thead>
+        <tbody *ngIf="ridesList$ | async as ridesList">
+          <tr *ngFor="let ride of ridesList.records">
+            <ng-container *ngIf="ride.fields as rideFields">
               <td><input type="checkbox" /></td>
 
               <td class="column">
                 <div class="column__avatar-column">
-                  <img [src]="ride.user.avatar" />
+                  <img [src]="rideFields.userImageSrc" />
                 </div>
                 <div class="column__avatar-container">
-                  <span>{{ ride.user.name }} </span>
-                  <span>{{ ride.user.phone }} </span>
+                  <span>{{ rideFields.userName }} </span>
+                  <span>{{ rideFields.userPhone }} </span>
                 </div>
               </td>
-              <td>{{ ride.car_comfort }}</td>
-              <td>{{ ride.ordered_time }}</td>
-              <td>{{ ride.start_location }}</td>
-              <td>{{ ride.finish_location }}</td>
+              <td>{{ rideFields.carConfort }}</td>
+              <td>{{ rideFields.orderedTime }}</td>
+              <td>{{ rideFields.startLocation }}</td>
+              <td>{{ rideFields.finishLocation }}</td>
               <td class="income">
                 <div class="income__decoration">
-                  {{ ride.income }}
+                  {{ rideFields.income }}
                 </div>
               </td>
-            </tr>
-          </tbody>
-        </table>
-        <div class="pagination">
-          <button type="button"></button>
-          <button type="button">1</button>
-          <button type="button">2</button>
-        </div>
-      </div>
-      <div>
-        <!-- <app-vertical-detailed-ride></app-vertical-detailed-ride> -->
+            </ng-container>
+          </tr>
+        </tbody>
+      </table>
+      <div class="pagination">
+        <button type="button"></button>
+        <button type="button">1</button>
+        <button type="button">2</button>
       </div>
     </div>
   </section>
