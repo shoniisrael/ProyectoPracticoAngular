@@ -1,16 +1,34 @@
- <div class="sidebar">
-    <div class="sidebar__row sidebar--align">
-        <img class="sidebar__img" src="https://i.pravatar.cc/300" alt="profile_pic">
-        <div class="sidebar__col">
-            <p><strong>Nombre</strong></p>
-            <p class="sidebar__col-phone">+593 123 123 123</p>
-        </div>
+<div class="sidebar">
+  <div class="sidebar__row sidebar--align">
+    <img
+      class="sidebar__img"
+      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRE2ndY4Yptmcygaj6R3Ay30yNAYSGVwcagQw&usqp=CAU"
+      alt="profile_pic"
+    />
+    <div class="sidebar__col">
+      <p><strong>Patricio Estrella</strong></p>
+      <p class="sidebar__col-phone">+593 123 123 123</p>
     </div>
-    <div class="sidebar__row">
-        <p class="sidebar__title">MAIN MENU</p>
-    </div>
-    <a [routerLink]="option.route" class="sidebar__row" *ngFor="let option of menuOptions"  routerLinkActive="sidebar__row--active">
-        <app-icon  name="{{option.icon}}" width="20px" height="20px" [color]="option.route == activated ? 'var(--blueberry-color)':'var(--light-gray-color)'"></app-icon>
-        <p>{{option.name}}</p>  
-    </a>
+  </div>
+  <div class="sidebar__row">
+    <p class="sidebar__title">MAIN MENU</p>
+  </div>
+  <a
+    [routerLink]="option.route"
+    class="sidebar__row"
+    *ngFor="let option of menuOptions"
+    routerLinkActive="sidebar__row--active"
+  >
+    <app-icon
+      name="{{ option.icon }}"
+      width="20px"
+      height="20px"
+      [color]="
+        option.route == activated
+          ? 'var(--blueberry-color)'
+          : 'var(--light-gray-color)'
+      "
+    ></app-icon>
+    <p>{{ option.name }}</p>
+  </a>
 </div>

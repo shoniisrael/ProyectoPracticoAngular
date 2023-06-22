@@ -1,23 +1,22 @@
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-
 import { environment } from '../../environments/environment';
 import { catchError, Observable } from 'rxjs';
-
-import { Ride } from '../models/rides.interface';
 import { handleError } from '../modules/shared/functions/handle-error-function';
 import { AirTableData } from '../models/record.interface';
 
 @Injectable({
   providedIn: 'root',
 })
-export class RidesService {
-  private endpoint = 'appVKGaPxptaKmoJG/tblobpdQvELzzWsbK';
+export class DriverService {
+  private endpoint = 'appVKGaPxptaKmoJG/tblYjFX5EMHPHwj87';
   private url = environment.apiUrl + this.endpoint;
 
-  constructor(private http: HttpClient) {}
+  constructor(private httpClient: HttpClient) {}
 
-  getRideList(): Observable<AirTableData> {
-    return this.http.get<AirTableData>(this.url).pipe(catchError(handleError));
+  getDriversList(): Observable<AirTableData> {
+    return this.httpClient
+      .get<AirTableData>(this.url)
+      .pipe(catchError(handleError));
   }
 }
