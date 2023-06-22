@@ -1,0 +1,94 @@
+:host {
+  display: block;
+  background: #fff;
+  border-radius: 8px;
+  padding: 15px 30px 30px 30px;
+  width: 550px;
+}
+
+.container {
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    &--title {
+      color: #5b5f7b;
+      font-size: 14px;
+      font-weight: 600px;
+    }
+    &--icon {
+      font-size: 20px;
+      cursor: pointer;
+      color: #5b5f7b;
+    }
+  }
+  &__body {
+
+    &--image{
+      text-align: center;
+
+      img{
+        border-radius: 50%;
+      }
+    }
+    .input-group {
+      padding: 10px 0px;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      width: 100%;
+      &__button {
+        cursor: pointer;
+        width: 150px;
+        height: 50px;
+        font-weight: bold;
+        font-size: 15px;
+        border: 0px solid white;
+        border-radius: 10px;
+
+        &--primary {
+          background-color: rgb(240, 210, 5);
+        }
+
+        &--secondary {
+          background-color: rgb(182, 184, 192);
+        }
+      }
+
+      &__label {
+        font-weight: 600;
+        font-size: 14px;
+        color: #5b5f7b;
+      }
+
+      &__input {
+        font-size: 15px;
+        height: 40px;
+        border-radius: 5px;
+        padding-left: 15px;
+        border: 2px solid #e4e6ee;
+        &--invalid {
+          color: rgb(241, 41, 41);
+          font-weight: bold;
+          border-color: red;
+        }
+        &-select {
+          width: 271px;
+        }
+      }
+    }
+  }
+  &__footer {
+    text-align: end;
+
+    button {
+      cursor: pointer;
+      border: none;
+      width: 170px;
+      height: 38px;
+      color: rgb(255, 255, 255);
+      background: var(--primary-color);
+      border-radius: 6px;
+      margin-top: 20px;
+    }
+  }
+}

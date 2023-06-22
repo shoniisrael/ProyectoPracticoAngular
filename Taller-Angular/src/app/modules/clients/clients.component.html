@@ -1,21 +1,22 @@
-<!-- <div class="client-section">
-  <div class="client-section__header">
-    <div class="search">
-      <h1 class="client-section__title">Client list</h1>
-    </div>
-    <div class="">
-      <app-button name="Add New Clients" [color]="'#ffffffff'" width="170px" height="38px" [border]="'none'" background="var(--primary-color)"></app-button>
-  </div>
-
-  </div>
-  <div class="table-wrapper">
-    <app-table [totalUsers]="totalCount" [tableHeaders]="headersArray" [arrayName$]="clientsList$.records" (pageSelected)="onPageSelected($event)"></app-table>
-  </div>
-</div> -->
-
 <section class="layout">
   <section class="layout_mainCard mainCard">
     <div class="flex"></div>
+    <div class="client-section__header">
+      <div class="search">
+        <h1 class="client-section__title">Client list</h1>
+      </div>
+      <div class="">
+        <app-button
+          name="Add New Clients"
+          [color]="'#ffffffff'"
+          width="170px"
+          height="38px"
+          [border]="'none'"
+          background="var(--primary-color)"
+          (click)="openDialog()"
+        ></app-button>
+      </div>
+    </div>
 
     <div class="table-wrapper">
       <table>
@@ -45,17 +46,18 @@
               <td>{{ clientFields.totalFinished }}</td>
               <td>{{ clientFields.homeLocation }}</td>
               <td>{{ clientFields.workLocation }}</td>
-              <td class="income">
-                <i
-                  class="fa fa-trash-o"
-                  data-bs-toggle="modal"
-                  data-bs-target="#deleteModal"
-
-                >
-                </i>
-                <a href="">
-                  <i class="fa fa-pencil"></i>
-                </a>
+              <td class="acctions">
+                <div class="acctions__icons">
+                  <a >
+                    <i class="fa fa-pencil"></i>
+                  </a>
+                  <i
+                    class="fa fa-trash-o"
+                    data-bs-toggle="modal"
+                    data-bs-target="#deleteModal"
+                  >
+                  </i>
+                </div>
               </td>
             </ng-container>
           </tr>

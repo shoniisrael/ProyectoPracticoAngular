@@ -1,0 +1,70 @@
+<div class="container">
+  <div class="container__header">
+    <label class="container__header--title"> Clients Information</label>
+    <i class="fa fa-times container__header--icon" (click)="dialogRef.close()">
+    </i>
+  </div>
+  <div class="container__body">
+    <div class="container__body--image">
+      <img ngSrc="assets/usuario.jpg" height="108" width="108" />
+    </div>
+    <form [formGroup]="reactiveForm" >
+      <div class="input-group">
+        <label class="input-group__label">First Name:</label>
+        <input
+          class="input-group__input"
+          type="text"
+          formControlName="name"
+          [class.input-group__input--invalid]="nameValid"
+          placeholder="Sierra"
+        />
+        <small class="input-group__input--invalid" *ngIf="nameValid"
+          >Este campo es requerido!</small
+        >
+      </div>
+      <div class="input-group">
+        <label class="input-group__label">Last Name:</label>
+        <input
+          class="input-group__input"
+          type="text"
+          formControlName="lastname"
+          [class.input-group__input--invalid]="lastNameValid"
+          placeholder="Ferguson"
+        />
+        <small class="input-group__input--invalid" *ngIf="lastNameValid"
+          >Este campo es requerido!</small
+        >
+      </div>
+      <div class="input-group">
+        <label class="input-group__label">Home Location:</label>
+        <input
+          class="input-group__input"
+          type="text"
+          formControlName="homeLocation"
+          [class.input-group__input--invalid]="homeLocationValid"
+          placeholder="Quito, Ec"
+        />
+        <small class="input-group__input--invalid" *ngIf="homeLocationValid"
+          >Este campo es requerido!</small
+        >
+      </div>
+      <div class="input-group">
+        <label class="input-group__label">Work Location:</label>
+        <input
+          class="input-group__input"
+          type="text"
+          formControlName="workLocation"
+          [class.input-group__input--invalid]="workLocationValid"
+          placeholder="Quito, Ec"
+        />
+        <small class="input-group__input--invalid" *ngIf="workLocationValid"
+          >Este campo es requerido!</small
+        >
+      </div>
+
+      <div class="container__footer">
+        <button type="button" [disabled]="reactiveForm.valid">Add New Client</button>
+      </div>
+    </form>
+  </div>
+</div>

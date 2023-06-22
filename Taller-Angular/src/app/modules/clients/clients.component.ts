@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable, of, tap } from 'rxjs';
-import { Client } from 'src/app/models/client.interface';
+import { Observable } from 'rxjs';
 import { AirTableData } from 'src/app/models/record.interface';
 import { TableHeader } from 'src/app/models/rides.interface';
 import { ClientsService } from 'src/app/services/clients.service';
-import { RidesService } from 'src/app/services/rides.service';
+import { Dialog } from '@angular/cdk/dialog';
+import { ClientFormComponent } from '@modules/client-form/client-form.component';
 
 @Component({
   selector: 'app-clients',
@@ -18,64 +18,38 @@ export class ClientsComponent implements OnInit {
     { label: 'Total finished', property: 'total_finished' },
     { label: 'Home Location', property: 'home_location' },
     { label: 'Work Location', property: 'work_location' },
-    { label: '', property: 'action' }
+    { label: '', property: 'action' },
   ];
 
   clientsList$!: Observable<AirTableData>;
-  // = of([
-  //   {
-  //     user: {
-  //       name: 'Sierra Ferguson',
-  //       phone: '+9995888888',
-  //       avatar: 'https://i.pravatar.cc/300',
-  //     },
-  //     total_rides: 4,
-  //     total_finished: 10,
-  //     home_location: 'Solanda, Casa47 junto al redondel principal',
-  //     work_location: 'Naciones Unidas',
-  //   },
-  //   {
-  //     user: {
-  //       name: 'Andres Lopez',
-  //       phone: '+9995444444',
-  //       avatar: 'https://i.pravatar.cc/300',
-  //     },
-  //     total_rides: 2,
-  //     total_finished: 5,
-  //     home_location: 'Valle de los chillos',
-  //     work_location: 'Av. Amazonas y pereira',
-  //   },
-  //   {
-  //     user: {
-  //       name: 'Sandra Arellano',
-  //       phone: '+999522222',
-  //       avatar: 'https://i.pravatar.cc/300',
-  //     },
-  //     total_rides: 10,
-  //     total_finished: 4,
-  //     home_location: 'Mitad del mundo',
-  //     work_location: 'La Carolina Edificio Metropolitan',
-  //   },
-  // ]);
-
-  // clientsList$: Observable<Ride[]>;
   totalCount = 0;
+  animal: string | undefined;
+  name: string = '';
 
-  constructor(private clientsService: ClientsService) {
+  constructor(private clientsService: ClientsService, public dialog: Dialog) {
     // this.clientsList$ = this.ridesService.getRideList()
     // .pipe(
     //   tap(data=>this.totalCount = data.length));
     this.clientsList$ = this.clientsService.getClientsList();
-    console.log(this.clientsList$)
-
+    console.log(this.clientsList$);
   }
 
-
   ngOnInit(): void {
-
     this.totalCount = 3;
   }
   onPageSelected(pageNumber: number) {
     console.log(pageNumber);
+  }
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open<string>(ClientFormComponent, {
+      width: '250px',
+      data: { name: 'ac', animal: 'cd' },
+    });
+
+    dialogRef.closed.subscribe((result) => {
+      console.log('The dialog was closed');
+      this.animal = result;
+    });
   }
 }

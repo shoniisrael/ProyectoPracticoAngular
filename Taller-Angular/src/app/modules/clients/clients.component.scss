@@ -90,17 +90,17 @@
   //  }
 }
 
-.income {
-  &__decoration {
-    border: 1px solid var(--green-color);
-    background-color: var(--green-color);
-    border-radius: 50px;
-    color: var(--success-color);
-    padding: 3px 7px;
-    text-align: center;
+.acctions {
+  width: 100px;
+
+  &__icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    font-size: 20px;
+    color: #5f66e9 !important;
   }
 }
-
 
 .layout {
   display: flex;
@@ -113,9 +113,18 @@
   &__mainCard {
     max-width: 100%;
   }
+}
 
-  &__rightSide {
-    width: 24rem;
-
+.client-section {
+  &__header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  &__title {
+    color: #2e3a59;
+    font: Montserrat;
+    font-weight: 800;
+    font-size: 20px;
   }
 }

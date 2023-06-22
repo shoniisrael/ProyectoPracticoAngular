@@ -12,10 +12,10 @@ import { CardDriverComponent } from './components/organisms/card-driver/card-dri
 import { ContenedorComponent } from './components/organisms/contenedor/contenedor.component';
 
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { ClientModalComponent } from './modules/client-modal/client-modal.component';
 import { AuthInterceptor } from './auth.interceptor';
 import { MainCardLayoutComponent } from '@modules/shared/main-card-layout/main-card-layout.component';
 import { NotFoundComponent } from './modules/shared/components/not-found/not-found.component';
+import { ModalComponent } from './components/organisms/modal/modal.component';
 
 @NgModule({
   declarations: [
@@ -23,9 +23,9 @@ import { NotFoundComponent } from './modules/shared/components/not-found/not-fou
     LayoutComponent,
     HeaderComponent,
     ContenedorComponent,
-    ClientModalComponent,
     MainCardLayoutComponent,
     NotFoundComponent,
+    ModalComponent
   ],
 
   imports: [
