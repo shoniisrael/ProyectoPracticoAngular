@@ -9,7 +9,7 @@ td {
 }
 
 .table {
-
+  width: 100%;
     &__head {
         text-align: left;
         background-color: #F7F8FA;
@@ -20,6 +20,10 @@ td {
 
         &--th2 {
             width: 212px;
+        }
+
+        &--tr{
+          text-align: center;
         }
 
     }

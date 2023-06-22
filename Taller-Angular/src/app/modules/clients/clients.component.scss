@@ -1,8 +1,5 @@
-.client-section {
-
+::ng-deep .client-section {
   margin: 1.5rem auto;
-  max-width: 1000px;
-  width: 80%;
 
   &__header {
     padding-top: 0.5rem;
@@ -14,9 +11,48 @@
   &__title {
     color: var(--blue-dark-color);
   }
+
+  .table__head--th1 {
+    width: 200px !important;
+  }
+
+  .table__head--th2 {
+    width: 130px !important;
+  }
+
+  .table__head--th3 {
+    width: 130px !important;
+  }
+  .table__head--th4{
+    width: 280px !important;
+  }
+  .table__head--th5 {
+    width: 280px !important;
+  }
+  .table__head--th6 {
+    width: 60px !important;
+  }
+
+  .table__body--user {
+    width: 200px !important;
+  }
+
+  .table__body--2 {
+    width: 110px !important;
+    text-align: center;
+  }
+  .table__body--3 {
+    width: 120px !important;
+    text-align: center;
+  }
+  .table__body--4 {
+    width: 270px !important;
+  }
+  .table__body--5 {
+    width: 270px !important;
+  }
 }
 
 .table-wrapper {
   color: var(--blue-dark-color);
-
 }
