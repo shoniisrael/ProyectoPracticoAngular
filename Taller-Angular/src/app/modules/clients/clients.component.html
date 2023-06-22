@@ -1,4 +1,4 @@
-<div class="client-section">
+<!-- <div class="client-section">
   <div class="client-section__header">
     <div class="search">
       <h1 class="client-section__title">Client list</h1>
@@ -9,6 +9,63 @@
 
   </div>
   <div class="table-wrapper">
-    <app-table [totalUsers]="totalCount" [tableHeaders]="headersArray" [arrayName$]="clientsList$" (pageSelected)="onPageSelected($event)"></app-table>
+    <app-table [totalUsers]="totalCount" [tableHeaders]="headersArray" [arrayName$]="clientsList$.records" (pageSelected)="onPageSelected($event)"></app-table>
   </div>
-</div>
+</div> -->
+
+<section class="layout">
+  <section class="layout_mainCard mainCard">
+    <div class="flex"></div>
+
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr>
+            <th>User</th>
+            <th>Total rides</th>
+            <th>Total finished</th>
+            <th>Home Location</th>
+            <th>Work Location</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody *ngIf="clientsList$ | async as clientsList">
+          <tr *ngFor="let client of clientsList.records">
+            <ng-container *ngIf="client.fields as clientFields">
+              <td class="column">
+                <div class="column__avatar-column">
+                  <img [src]="clientFields.imageSrc" />
+                </div>
+                <div class="column__avatar-container">
+                  <span>{{ clientFields.name }} </span>
+                  <span>{{ clientFields.phone }} </span>
+                </div>
+              </td>
+              <td>{{ clientFields.totalRides }}</td>
+              <td>{{ clientFields.totalFinished }}</td>
+              <td>{{ clientFields.homeLocation }}</td>
+              <td>{{ clientFields.workLocation }}</td>
+              <td class="income">
+                <i
+                  class="fa fa-trash-o"
+                  data-bs-toggle="modal"
+                  data-bs-target="#deleteModal"
+
+                >
+                </i>
+                <a href="">
+                  <i class="fa fa-pencil"></i>
+                </a>
+              </td>
+            </ng-container>
+          </tr>
+        </tbody>
+      </table>
+      <div class="pagination">
+        <button type="button"></button>
+        <button type="button">1</button>
+        <button type="button">2</button>
+      </div>
+    </div>
+  </section>
+</section>

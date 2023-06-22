@@ -11,6 +11,11 @@ export interface Fields {
   userImageSrc: string;
   orderedTime: string;
   carConfort: string;
+  imageSrc: string;
+  totalRides: number;
+  totalFinished: number;
+  homeLocation:string;
+  workLocation:string;
 }
 export interface Record {
   id: string;
